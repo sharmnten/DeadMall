@@ -7,8 +7,21 @@ export class Player extends Schema {
 	@type('string') public name: string;
 	@type("number") public x: number = 0;
 	@type("number") public y: number = 0;
+	@type("string")
+    public team: "left" | "right" = "left";
 }
 
 export class MyRoomState extends Schema {
-  @type({ map: Player }) players = new MapSchema<Player>();
+    @type({ map: Player })
+    players = new MapSchema<Player>();
+    @type("number")
+    public puckX: number;
+    @type("number")
+    public puckY: number;
+    @type("string")
+    public lastHitBy: string;
+    @type("number")
+    public leftScore: number = 0;
+    @type("number")
+    public rightScore: number = 0;
 }
